@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Запись на консультацию — Адвокат Соколов А.И.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#c09a3f;
+  --gold-l:#d4af5a;
+  --gold-d:#9a7a2f;
+  --bg:#0b0f19;
+  --bg2:#0f1520;
+  --bg3:#141d2e;
+  --bg4:#1a2338;
+  --text:#e8e2d4;
+  --text2:#a09888;
+  --text3:#6a6258;
+  --border:rgba(192,154,63,.18);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;min-height:100dvh;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(11,15,25,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-i{max-width:1280px;margin:0 auto;padding:0 2rem;height:72px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.nav-logo{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:.02em;white-space:nowrap}
+.nav-logo span{color:var(--text);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;font-weight:400;letter-spacing:.02em;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--bg);padding:.55rem 1.4rem;border-radius:3px;font-size:.875rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--gold-l);transform:translateY(-1px)}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text2);transition:.2s}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--bg2);flex-direction:column;padding:1.5rem 2rem;gap:1.25rem;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .nav-burger{display:flex}
+  .nav-cta{display:none}
+}
+
+/* PAGE HERO */
+.pg-hero{background:linear-gradient(160deg,var(--bg2) 0%,var(--bg) 60%);padding:5rem 2rem 4rem;position:relative;overflow:hidden}
+.pg-hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 80% at 10% 50%,rgba(192,154,63,.07) 0%,transparent 70%);pointer-events:none}
+.pg-hero-i{max-width:900px;margin:0 auto;text-align:center;position:relative}
+.pg-hero-label{display:inline-block;color:var(--gold);font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.25rem}
+.pg-hero h1{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:600;line-height:1.15;color:var(--text);margin-bottom:1.25rem}
+.pg-hero p{color:var(--text2);font-size:1.05rem;max-width:560px;margin:0 auto}
+
+/* STEPS */
+.steps{padding:5rem 2rem}
+.steps-i{max-width:1100px;margin:0 auto}
+.sec-label{color:var(--gold);font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
+.sec-h{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:600;margin-bottom:.75rem}
+.steps-g{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem}
+.step-c{position:relative;padding:2rem;background:var(--bg2);border:1px solid var(--border);border-radius:6px;transition:border-color .3s}
+.step-c:hover{border-color:rgba(192,154,63,.35)}
+.step-n{font-family:var(--serif);font-size:3.5rem;font-weight:700;color:rgba(192,154,63,.12);line-height:1;margin-bottom:1rem}
+.step-c h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin-bottom:.6rem;color:var(--text)}
+.step-c p{color:var(--text2);font-size:.9rem;line-height:1.7}
+.step-conn{position:absolute;top:50%;right:-1.1rem;transform:translateY(-50%);width:1rem;height:1px;background:var(--border)}
+.step-c:last-child .step-conn{display:none}
+@media(max-width:768px){.steps-g{grid-template-columns:1fr}.step-conn{display:none}}
+
+/* BOOKING LAYOUT */
+.booking{padding:2rem 2rem 6rem}
+.booking-i{max-width:1100px;margin:0 auto}
+.book-l{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
+@media(max-width:900px){.book-l{grid-template-columns:1fr}}
+
+/* SLOT PICKER */
+.slot-panel{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:2rem}
+.slot-panel h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:1.75rem;color:var(--text)}
+.slot-label{font-size:.75rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:.75rem}
+.days-g{display:grid;grid-template-columns:repeat(5,1fr);gap:.5rem;margin-bottom:1.75rem}
+.day-btn{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:.6rem .3rem;text-align:center;cursor:pointer;transition:all .2s;color:var(--text2);font-family:var(--sans);font-size:.8rem}
+.day-btn .dn{font-size:.7rem;color:var(--text3);margin-bottom:.25rem}
+.day-btn .dd{font-size:1rem;font-weight:600;color:var(--text)}
+.day-btn:hover{border-color:rgba(192,154,63,.4);color:var(--gold)}
+.day-btn.active{background:rgba(192,154,63,.12);border-color:var(--gold);color:var(--gold)}
+.day-btn.active .dd{color:var(--gold)}
+.times-g{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:1.75rem}
+.time-btn{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:.5rem;text-align:center;cursor:pointer;font-size:.85rem;color:var(--text2);font-family:var(--sans);transition:all .2s}
+.time-btn:hover{border-color:rgba(192,154,63,.4);color:var(--gold)}
+.time-btn.active{background:rgba(192,154,63,.12);border-color:var(--gold);color:var(--gold);font-weight:500}
+.time-btn.disabled{opacity:.35;pointer-events:none}
+.slot-chosen{background:rgba(192,154,63,.06);border:1px solid rgba(192,154,63,.2);border-radius:5px;padding:1rem 1.25rem;font-size:.875rem;color:var(--gold);display:none}
+.slot-chosen.show{display:block}
+.slot-chosen span{color:var(--text2);margin-right:.5rem}
+
+/* CONTACT BLOCK */
+.contact-card{margin-top:1.75rem;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:1.25rem}
+.contact-card .cc-row{display:flex;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border)}
+.contact-card .cc-row:last-child{border-bottom:none}
+.cc-icon{width:32px;height:32px;background:rgba(192,154,63,.1);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cc-icon svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.cc-row-t{font-size:.75rem;color:var(--text3);margin-bottom:.1rem}
+.cc-row-v{font-size:.9rem;color:var(--text);font-weight:500}
+
+/* FORM */
+.form-panel{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:2rem}
+.form-panel h3{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:1.75rem}
+.form-g{display:flex;flex-direction:column;gap:1.25rem}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.f-row{grid-template-columns:1fr}}
+.f-field{display:flex;flex-direction:column;gap:.4rem}
+.f-field label{font-size:.8rem;font-weight:500;color:var(--text2);letter-spacing:.03em}
+.f-field label .req{color:var(--gold);margin-left:.2rem}
+.f-field input,.f-field select,.f-field textarea{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:.7rem 1rem;color:var(--text);font-family:var(--sans);font-size:.9rem;outline:none;transition:border-color .2s,box-shadow .2s;width:100%}
+.f-field input::placeholder,.f-field textarea::placeholder{color:var(--text3)}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{border-color:rgba(192,154,63,.5);box-shadow:0 0 0 3px rgba(192,154,63,.07)}
+.f-field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236a6258' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;padding-right:2.5rem;cursor:pointer}
+.f-field select option{background:var(--bg2);color:var(--text)}
+.f-field textarea{resize:vertical;min-height:110px;line-height:1.6}
+.form-note{font-size:.78rem;color:var(--text3);line-height:1.6}
+.form-note a{color:var(--text2);text-decoration:underline;text-underline-offset:3px}
+.btn-submit{background:var(--gold);color:var(--bg);border:none;padding:.85rem 2rem;border-radius:4px;font-family:var(--sans);font-size:.9rem;font-weight:600;cursor:pointer;transition:background .2s,transform .15s;width:100%;letter-spacing:.02em}
+.btn-submit:hover{background:var(--gold-l);transform:translateY(-1px)}
+.btn-submit:active{transform:translateY(0) scale(.98)}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.f-success{display:none;background:rgba(192,154,63,.08);border:1px solid rgba(192,154,63,.25);border-radius:6px;padding:1.5rem;text-align:center}
+.f-success.show{display:block}
+.f-success h4{font-family:var(--serif);font-size:1.25rem;color:var(--gold);margin-bottom:.5rem}
+.f-success p{color:var(--text2);font-size:.9rem}
+.f-err{display:none;font-size:.78rem;color:#e05252;margin-top:.3rem}
+.f-err.show{display:block}
+
+/* PREP SECTION */
+.prep{padding:5rem 2rem;background:var(--bg2);border-top:1px solid var(--border)}
+.prep-i{max-width:1100px;margin:0 auto}
+.prep-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+@media(max-width:768px){.prep-g{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.prep-g{grid-template-columns:1fr}}
+.prep-c{display:flex;gap:1rem;align-items:flex-start}
+.prep-ic{width:40px;height:40px;background:rgba(192,154,63,.1);border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+.prep-ic svg{width:18px;height:18px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.prep-c h4{font-size:.95rem;font-weight:500;margin-bottom:.3rem;color:var(--text)}
+.prep-c p{font-size:.83rem;color:var(--text2);line-height:1.65}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 2rem}
+.footer-i{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-logo{font-family:var(--serif);font-size:1.15rem;color:var(--gold);font-weight:600}
+.footer-copy{color:var(--text3);font-size:.8rem}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:var(--text3);text-decoration:none;font-size:.82rem;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+
+/* REVEAL ANIM */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.rv.vis{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-i">
+    <a href="index.html" class="nav-logo">Соколов <span>А.И.</span></a>
+    <div class="nav-burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#services">Практика</a></li>
+      <li><a href="services.html">Услуги</a></li>
+      <li><a href="index.html#cases">Дела</a></li>
+      <li><a href="index.html#reviews">Отзывы</a></li>
+      <li><a href="index.html#prices">Стоимость</a></li>
+      <li><a href="booking.html" style="color:var(--gold)">Запись</a></li>
+    </ul>
+    <a href="booking.html" class="nav-cta">Записаться</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="pg-hero">
+  <div class="pg-hero-i">
+    <span class="pg-hero-label">Онлайн-запись</span>
+    <h1>Запишитесь на консультацию</h1>
+    <p>Выберите удобный день и время — первичная консультация длится 60 минут. Адрес: Москва, Пречистенская набережная, д. 11, офис 314.</p>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps">
+  <div class="steps-i">
+    <div class="rv">
+      <div class="sec-label">Как это работает</div>
+      <h2 class="sec-h">Три шага до консультации</h2>
+    </div>
+    <div class="steps-g">
+      <div class="step-c rv" style="transition-delay:.1s">
+        <div class="step-n">01</div>
+        <h3>Выберите дату и время</h3>
+        <p>Укажите удобный день из доступных слотов и выберите время с 10:00 до 18:00 в рабочие дни.</p>
+        <div class="step-conn"></div>
+      </div>
+      <div class="step-c rv" style="transition-delay:.2s">
+        <div class="step-n">02</div>
+        <h3>Заполните форму</h3>
+        <p>Укажите ваше имя, контактный телефон и кратко опишите суть вопроса — это поможет подготовиться.</p>
+        <div class="step-conn"></div>
+      </div>
+      <div class="step-c rv" style="transition-delay:.3s">
+        <div class="step-n">03</div>
+        <h3>Получите подтверждение</h3>
+        <p>В течение 30 минут позвоним для подтверждения записи и ответим на дополнительные вопросы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking">
+  <div class="booking-i">
+    <div class="rv">
+      <div class="sec-label">Запись</div>
+      <h2 class="sec-h">Выберите время</h2>
+    </div>
+    <div class="book-l">
+      <!-- SLOT PICKER -->
+      <div class="slot-panel rv" style="transition-delay:.1s">
+        <h3>Доступные слоты</h3>
+        <div class="slot-label">День</div>
+        <div class="days-g" id="daysGrid"></div>
+        <div class="slot-label">Время</div>
+        <div class="times-g" id="timesGrid"></div>
+        <div class="slot-chosen" id="slotChosen">
+          <span>Выбрано:</span><strong id="slotText"></strong>
+        </div>
+        <div class="contact-card" style="margin-top:1.75rem">
+          <div class="cc-row">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.12 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012.03 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <div class="cc-row-t">Телефон</div>
+              <div class="cc-row-v">+7 (495) 123-45-67</div>
+            </div>
+          </div>
+          <div class="cc-row">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div class="cc-row-t">E-mail</div>
+              <div class="cc-row-v">sokolov@advokatmoscow.ru</div>
+            </div>
+          </div>
+          <div class="cc-row">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="cc-row-t">Адрес</div>
+              <div class="cc-row-v">Пречистенская набережная, 11, офис 314</div>
+            </div>
+          </div>
+          <div class="cc-row">
+            <div class="cc-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="cc-row-t">Часы приёма</div>
+              <div class="cc-row-v">Пн–Пт, 10:00–19:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-panel rv" style="transition-delay:.2s">
+        <h3>Ваши данные</h3>
+        <div id="formWrap">
+          <form class="form-g" id="bookForm" novalidate onsubmit="submitForm(event)">
+            <div class="f-row">
+              <div class="f-field">
+                <label>Имя<span class="req">*</span></label>
+                <input type="text" id="fName" placeholder="Александр Иванов" autocomplete="name">
+                <div class="f-err" id="errName">Пожалуйста, введите ваше имя</div>
+              </div>
+              <div class="f-field">
+                <label>Телефон<span class="req">*</span></label>
+                <input type="tel" id="fPhone" placeholder="+7 (___) ___-__-__" maxlength="18" autocomplete="tel">
+                <div class="f-err" id="errPhone">Введите корректный номер</div>
+              </div>
+            </div>
+            <div class="f-field">
+              <label>Категория вопроса<span class="req">*</span></label>
+              <select id="fType">
+                <option value="">— Выберите —</option>
+                <option value="civil">Гражданское право</option>
+                <option value="family">Семейные споры</option>
+                <option value="arbitrage">Арбитраж и бизнес</option>
+                <option value="realty">Недвижимость</option>
+                <option value="bankruptcy">Банкротство</option>
+                <option value="other">Другое</option>
+              </select>
+              <div class="f-err" id="errType">Выберите категорию</div>
+            </div>
+            <div class="f-field">
+              <label>Краткое описание ситуации</label>
+              <textarea id="fMsg" placeholder="Опишите суть вашего вопроса в 2–3 предложениях..."></textarea>
+            </div>
+            <div class="f-field">
+              <label>Предпочтительный способ связи</label>
+              <select id="fContact">
+                <option value="phone">Телефонный звонок</option>
+                <option value="whatsapp">WhatsApp</option>
+                <option value="telegram">Telegram</option>
+                <option value="email">E-mail</option>
+              </select>
+            </div>
+            <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой конфиденциальности</a> и даёте согласие на обработку персональных данных.</p>
+            <button type="submit" class="btn-submit" id="btnSubmit">Подтвердить запись</button>
+          </form>
+        </div>
+        <div class="f-success" id="fSuccess">
+          <h4>Запись принята</h4>
+          <p>Мы перезвоним вам в течение 30 минут для подтверждения. Если возникнут вопросы — звоните: <strong>+7 (495) 123-45-67</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREP SECTION -->
+<section class="prep">
+  <div class="prep-i">
+    <div class="rv">
+      <div class="sec-label">Подготовка</div>
+      <h2 class="sec-h">Что взять на консультацию</h2>
+      <p style="color:var(--text2);margin-top:.75rem;max-width:560px">Чем больше документов вы принесёте — тем точнее и полезнее будет анализ вашей ситуации.</p>
+    </div>
+    <div class="prep-g">
+      <div class="prep-c rv" style="transition-delay:.05s">
+        <div class="prep-ic">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <h4>Паспорт</h4>
+          <p>Документ, удостоверяющий личность — обязателен для оформления соглашения об оказании юридической помощи.</p>
+        </div>
+      </div>
+      <div class="prep-c rv" style="transition-delay:.1s">
+        <div class="prep-ic">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div>
+          <h4>Договоры и соглашения</h4>
+          <p>Все относящиеся к делу договоры, контракты, расписки, акты приёма-передачи и иные письменные договорённости.</p>
+        </div>
+      </div>
+      <div class="prep-c rv" style="transition-delay:.15s">
+        <div class="prep-ic">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div>
+          <h4>Переписка</h4>
+          <p>Переписка с контрагентами, претензии, ответы на претензии — в распечатанном виде или на телефоне.</p>
+        </div>
+      </div>
+      <div class="prep-c rv" style="transition-delay:.2s">
+        <div class="prep-ic">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div>
+          <h4>Судебные документы</h4>
+          <p>Если дело уже в суде — исковые заявления, решения, определения, постановления, апелляции.</p>
+        </div>
+      </div>
+      <div class="prep-c rv" style="transition-delay:.25s">
+        <div class="prep-ic">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <h4>Правоустанавливающие документы</h4>
+          <p>Свидетельства о праве собственности, выписки из ЕГРН, договоры купли-продажи или дарения.</p>
+        </div>
+      </div>
+      <div class="prep-c rv" style="transition-delay:.3s">
+        <div class="prep-ic">
+          <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </div>
+        <div>
+          <h4>Хронология событий</h4>
+          <p>Краткая запись ключевых дат: когда что произошло, кто что сделал — поможет не упустить важное.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-i">
+    <div class="footer-logo">Соколов А.И.</div>
+    <div class="footer-copy">© 2024 Адвокат Соколов А.И. Москва</div>
+    <div class="footer-links">
+      <a href="index.html">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="index.html#prices">Стоимость</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// NAV
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// DAYS
+const today = new Date();
+const days = ['Вс','Пн','Вт','Ср','Чт','Пт','Сб'];
+const months = ['янв','фев','мар','апр','май','июн','июл','авг','сен','окт','ноя','дек'];
+let selectedDay = null, selectedTime = null;
+
+function buildDays(){
+  const g = document.getElementById('daysGrid');
+  let count = 0, d = new Date(today);
+  while(count < 5){
+    d.setDate(d.getDate() + 1);
+    const dw = d.getDay();
+    if(dw === 0 || dw === 6) continue;
+    const btn = document.createElement('button');
+    btn.className = 'day-btn';
+    btn.type = 'button';
+    btn.innerHTML = `<div class="dn">${days[dw]}</div><div class="dd">${d.getDate()} ${months[d.getMonth()]}</div>`;
+    btn.dataset.date = `${days[dw]}, ${d.getDate()} ${months[d.getMonth()]}`;
+    btn.addEventListener('click', () => selectDay(btn));
+    g.appendChild(btn);
+    count++;
+  }
+}
+
+function selectDay(btn){
+  document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedDay = btn.dataset.date;
+  updateChosen();
+}
+
+// TIMES
+const slots = ['10:00','11:30','13:00','14:30','16:00','17:30'];
+const busy = ['13:00','14:30'];
+
+function buildTimes(){
+  const g = document.getElementById('timesGrid');
+  slots.forEach(t => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'time-btn' + (busy.includes(t) ? ' disabled' : '');
+    btn.textContent = t;
+    btn.dataset.time = t;
+    if(!busy.includes(t)) btn.addEventListener('click', () => selectTime(btn));
+    g.appendChild(btn);
+  });
+}
+
+function selectTime(btn){
+  document.querySelectorAll('.time-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedTime = btn.dataset.time;
+  updateChosen();
+}
+
+function updateChosen(){
+  const el = document.getElementById('slotChosen');
+  const txt = document.getElementById('slotText');
+  if(selectedDay && selectedTime){
+    txt.textContent = selectedDay + ' в ' + selectedTime;
+    el.classList.add('show');
+  }
+}
+
+buildDays();
+buildTimes();
+
+// PHONE MASK
+document.getElementById('fPhone').addEventListener('input', function(e){
+  let v = this.value.replace(/\D/g,'');
+  if(v.startsWith('8')) v = '7' + v.slice(1);
+  if(v.startsWith('7')) v = v.slice(1);
+  v = v.slice(0,10);
+  let r = '';
+  if(v.length > 0) r = '+7 (' + v.slice(0,3);
+  if(v.length >= 4) r += ') ' + v.slice(3,6);
+  if(v.length >= 7) r += '-' + v.slice(6,8);
+  if(v.length >= 9) r += '-' + v.slice(8,10);
+  this.value = r;
+});
+
+// FORM SUBMIT
+function submitForm(e){
+  e.preventDefault();
+  let ok = true;
+  const name = document.getElementById('fName').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  const type = document.getElementById('fType').value;
+  document.getElementById('errName').classList.toggle('show', !name);
+  document.getElementById('errPhone').classList.toggle('show', phone.length < 12);
+  document.getElementById('errType').classList.toggle('show', !type);
+  if(!name || phone.length < 12 || !type) return;
+  const btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  btn.textContent = 'Отправка...';
+  setTimeout(() => {
+    document.getElementById('formWrap').style.display = 'none';
+    document.getElementById('fSuccess').classList.add('show');
+  }, 1200);
+}
+
+// REVEAL
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('vis'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>

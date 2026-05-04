@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Услуги — Адвокат Соколов А.И.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#c09a3f;
+  --gold-l:#d4af5a;
+  --gold-d:#9a7a2f;
+  --bg:#0b0f19;
+  --bg2:#0f1520;
+  --bg3:#141d2e;
+  --bg4:#1a2338;
+  --text:#e8e2d4;
+  --text2:#a09888;
+  --text3:#6a6258;
+  --border:rgba(192,154,63,.18);
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:400;line-height:1.6;min-height:100dvh;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(11,15,25,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-i{max-width:1280px;margin:0 auto;padding:0 2rem;height:72px;display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.nav-logo{font-family:var(--serif);font-size:1.35rem;font-weight:600;color:var(--gold);text-decoration:none;letter-spacing:.02em;white-space:nowrap}
+.nav-logo span{color:var(--text);font-weight:400}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.875rem;font-weight:400;letter-spacing:.02em;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--bg);padding:.55rem 1.4rem;border-radius:3px;font-size:.875rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--gold-l);transform:translateY(-1px)}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text2);transition:.2s}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--bg2);flex-direction:column;padding:1.5rem 2rem;gap:1.25rem;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .nav-burger{display:flex}
+  .nav-cta{display:none}
+}
+
+/* PAGE HERO */
+.pg-hero{background:linear-gradient(155deg,var(--bg2) 0%,var(--bg) 55%);padding:5rem 2rem 4rem;position:relative;overflow:hidden}
+.pg-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 90% at 8% 50%,rgba(192,154,63,.07) 0%,transparent 70%);pointer-events:none}
+.ph-i{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center;position:relative}
+@media(max-width:768px){.ph-i{grid-template-columns:1fr}}
+.ph-left .pg-label{color:var(--gold);font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.25rem}
+.ph-left h1{font-family:var(--serif);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:600;line-height:1.15;margin-bottom:1.25rem}
+.ph-left p{color:var(--text2);font-size:1.05rem;max-width:520px;margin-bottom:2rem}
+.ph-stats{display:flex;gap:2.5rem;flex-wrap:wrap}
+.ph-stat-v{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--gold);line-height:1}
+.ph-stat-l{font-size:.8rem;color:var(--text3);margin-top:.2rem}
+.cred-card{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:2rem;min-width:240px;flex-shrink:0}
+.cred-av{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--bg4),var(--bg2));border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-family:var(--serif);font-size:1.8rem;color:var(--gold);font-weight:600}
+.cred-name{font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:.2rem}
+.cred-pos{font-size:.82rem;color:var(--text2);margin-bottom:1.25rem}
+.cred-badges{display:flex;flex-direction:column;gap:.6rem}
+.cred-b{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--text2)}
+.cred-b svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* STICKY TAB NAV */
+.srv-nav{position:sticky;top:72px;z-index:90;background:rgba(11,15,25,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.srv-nav-i{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:0;scrollbar-width:none}
+.srv-nav-i::-webkit-scrollbar{display:none}
+.srv-tab{background:none;border:none;padding:1rem 1.5rem;color:var(--text3);font-family:var(--sans);font-size:.875rem;font-weight:500;cursor:pointer;white-space:nowrap;position:relative;transition:color .2s;border-bottom:2px solid transparent;margin-bottom:-1px}
+.srv-tab::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .25s}
+.srv-tab:hover{color:var(--text2)}
+.srv-tab.active{color:var(--gold)}
+.srv-tab.active::after{transform:scaleX(1)}
+
+/* SERVICE SECTIONS */
+.srv-sec{display:none;padding:5rem 2rem}
+.srv-sec.active{display:block}
+.srv-sec-i{max-width:1280px;margin:0 auto}
+.srv-top{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:start;margin-bottom:3.5rem}
+@media(max-width:768px){.srv-top{grid-template-columns:1fr}}
+.srv-label{color:var(--gold);font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem}
+.srv-h{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);font-weight:600;line-height:1.15;margin-bottom:1rem}
+.srv-lead{color:var(--text2);font-size:1.05rem;max-width:560px;line-height:1.75}
+.srv-big-n{font-family:var(--serif);font-size:7rem;font-weight:700;color:rgba(192,154,63,.08);line-height:1;text-align:right;user-select:none}
+@media(max-width:768px){.srv-big-n{display:none}}
+.srv-body{display:grid;grid-template-columns:3fr 2fr;gap:3rem}
+@media(max-width:900px){.srv-body{grid-template-columns:1fr}}
+.srv-desc p{color:var(--text2);line-height:1.8;margin-bottom:1.25rem;font-size:.95rem}
+.srv-desc p:last-child{margin-bottom:0}
+.case-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.75rem}
+.ctag{background:var(--bg3);border:1px solid var(--border);border-radius:3px;padding:.35rem .8rem;font-size:.78rem;color:var(--text2);white-space:nowrap}
+
+.inc-box{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.75rem;height:fit-content}
+.inc-box h4{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin-bottom:1.25rem;color:var(--text)}
+.inc-list{list-style:none;display:flex;flex-direction:column;gap:.75rem}
+.inc-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.875rem;color:var(--text2);line-height:1.6}
+.inc-list li::before{content:'';display:block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:.5rem;flex-shrink:0}
+.inc-cta{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.inc-price{font-size:.8rem;color:var(--text3);margin-bottom:.3rem}
+.inc-price-v{font-family:var(--serif);font-size:1.35rem;color:var(--gold);font-weight:600;margin-bottom:1rem}
+.btn-book{display:block;background:var(--gold);color:var(--bg);text-align:center;padding:.75rem 1.5rem;border-radius:4px;font-size:.875rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;letter-spacing:.02em}
+.btn-book:hover{background:var(--gold-l);transform:translateY(-1px)}
+.btn-book:active{transform:scale(.98)}
+
+/* CTA SECTION */
+.cta-sec{background:var(--bg2);border-top:1px solid var(--border);padding:5rem 2rem}
+.cta-sec-i{max-width:800px;margin:0 auto;text-align:center}
+.cta-sec .sec-label{color:var(--gold);font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.25rem;display:block}
+.cta-sec h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.2;margin-bottom:1.25rem}
+.cta-sec p{color:var(--text2);font-size:1.05rem;margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-pri{background:var(--gold);color:var(--bg);padding:.85rem 2.25rem;border-radius:4px;font-size:.95rem;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;letter-spacing:.02em}
+.btn-pri:hover{background:var(--gold-l);transform:translateY(-1px)}
+.btn-sec{border:1px solid var(--border);color:var(--text2);padding:.85rem 2.25rem;border-radius:4px;font-size:.95rem;font-weight:400;text-decoration:none;transition:border-color .2s,color .2s,transform .15s}
+.btn-sec:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-1px)}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:3rem 2rem}
+.footer-i{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.footer-logo{font-family:var(--serif);font-size:1.15rem;color:var(--gold);font-weight:600}
+.footer-copy{color:var(--text3);font-size:.8rem}
+.footer-links{display:flex;gap:1.5rem}
+.footer-links a{color:var(--text3);text-decoration:none;font-size:.82rem;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
+.rv.vis{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-i">
+    <a href="index.html" class="nav-logo">Соколов <span>А.И.</span></a>
+    <div class="nav-burger" id="burger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#services">Практика</a></li>
+      <li><a href="services.html" style="color:var(--gold)">Услуги</a></li>
+      <li><a href="index.html#cases">Дела</a></li>
+      <li><a href="index.html#reviews">Отзывы</a></li>
+      <li><a href="index.html#prices">Стоимость</a></li>
+      <li><a href="booking.html">Запись</a></li>
+    </ul>
+    <a href="booking.html" class="nav-cta">Записаться</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="pg-hero">
+  <div class="ph-i">
+    <div class="ph-left rv">
+      <div class="pg-label">Юридическая практика</div>
+      <h1>Все направления<br>правовой помощи</h1>
+      <p>12 лет практики, 340+ выигранных дел и полный спектр юридических услуг для граждан и бизнеса в Москве.</p>
+      <div class="ph-stats">
+        <div>
+          <div class="ph-stat-v">12+</div>
+          <div class="ph-stat-l">лет практики</div>
+        </div>
+        <div>
+          <div class="ph-stat-v">340+</div>
+          <div class="ph-stat-l">дел выиграно</div>
+        </div>
+        <div>
+          <div class="ph-stat-v">89%</div>
+          <div class="ph-stat-l">успешных исходов</div>
+        </div>
+      </div>
+    </div>
+    <div class="cred-card rv" style="transition-delay:.15s">
+      <div class="cred-av">С</div>
+      <div class="cred-name">Соколов А.И.</div>
+      <div class="cred-pos">Адвокат, Адвокатская палата Москвы</div>
+      <div class="cred-badges">
+        <div class="cred-b">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Реестровый номер 77/12847
+        </div>
+        <div class="cred-b">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Член коллегии адвокатов
+        </div>
+        <div class="cred-b">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Допуск к арбитражным делам
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY TAB NAV -->
+<div class="srv-nav">
+  <div class="srv-nav-i" id="srvNav">
+    <button class="srv-tab active" data-tab="civil" onclick="switchTab('civil')">Гражданское право</button>
+    <button class="srv-tab" data-tab="family" onclick="switchTab('family')">Семейные споры</button>
+    <button class="srv-tab" data-tab="arbitrage" onclick="switchTab('arbitrage')">Арбитраж и бизнес</button>
+    <button class="srv-tab" data-tab="realty" onclick="switchTab('realty')">Недвижимость</button>
+    <button class="srv-tab" data-tab="bankruptcy" onclick="switchTab('bankruptcy')">Банкротство</button>
+  </div>
+</div>
+
+<!-- CIVIL -->
+<section class="srv-sec active" id="tab-civil">
+  <div class="srv-sec-i">
+    <div class="srv-top">
+      <div>
+        <div class="srv-label rv">Гражданское право</div>
+        <h2 class="srv-h rv" style="transition-delay:.1s">Защита имущественных<br>прав и интересов</h2>
+        <p class="srv-lead rv" style="transition-delay:.2s">Представительство в судах общей юрисдикции по широкому кругу гражданских споров — от взыскания долгов до защиты деловой репутации.</p>
+      </div>
+      <div class="srv-big-n rv" style="transition-delay:.15s">340</div>
+    </div>
+    <div class="srv-body">
+      <div class="srv-desc rv">
+        <p>Гражданское право охватывает практически все сферы, с которыми человек сталкивается ежедневно: договорные отношения, право собственности, деликты, наследование. Споры в этой области нередко затрагивают значительные имущественные интересы, поэтому профессиональное юридическое сопровождение зачастую является решающим фактором исхода дела.</p>
+        <p>В моей практике — более 180 выигранных гражданских дел. Я специализируюсь на делах, где оппонент располагает опытным юридическим представителем, а также в случаях, когда дело дошло до апелляции или кассации после неудачного первого рассмотрения.</p>
+        <p>Ключевой принцип работы: детальная досудебная подготовка и предварительный анализ перспектив. Если ситуация не имеет судебной перспективы — я скажу об этом прямо, не затягивая процесс и не расходуя ваше время и средства.</p>
+        <div class="case-tags">
+          <span class="ctag">Взыскание долга</span>
+          <span class="ctag">Договорные споры</span>
+          <span class="ctag">Ущерб и деликты</span>
+          <span class="ctag">Наследство</span>
+          <span class="ctag">Защита репутации</span>
+          <span class="ctag">Оспаривание сделок</span>
+          <span class="ctag">Истребование имущества</span>
+        </div>
+      </div>
+      <div class="inc-box rv" style="transition-delay:.15s">
+        <h4>Что входит в услугу</h4>
+        <ul class="inc-list">
+          <li>Первичная консультация и анализ перспектив</li>
+          <li>Изучение документов и формирование правовой позиции</li>
+          <li>Подготовка иска, возражений, ходатайств</li>
+          <li>Представление интересов во всех инстанциях</li>
+          <li>Переговоры о мировом соглашении</li>
+          <li>Контроль исполнения судебного решения</li>
+          <li>Консультации в процессе ведения дела</li>
+        </ul>
+        <div class="inc-cta">
+          <div class="inc-price">Стоимость от</div>
+          <div class="inc-price-v">30 000 ₽</div>
+          <a href="booking.html" class="btn-book">Записаться на консультацию</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section class="srv-sec" id="tab-family">
+  <div class="srv-sec-i">
+    <div class="srv-top">
+      <div>
+        <div class="srv-label rv">Семейные споры</div>
+        <h2 class="srv-h rv" style="transition-delay:.1s">Защита интересов<br>в семейных делах</h2>
+        <p class="srv-lead rv" style="transition-delay:.2s">Сопровождение бракоразводных процессов, раздел имущества, алиментные споры и защита прав в вопросах, касающихся детей.</p>
+      </div>
+      <div class="srv-big-n rv" style="transition-delay:.15s">87</div>
+    </div>
+    <div class="srv-body">
+      <div class="srv-desc rv">
+        <p>Семейные конфликты относятся к наиболее эмоционально сложным категориям дел. Они затрагивают не только имущество, но и судьбы детей, будущее семьи. В таких ситуациях крайне важно сохранять хладнокровие, мыслить стратегически и одновременно действовать быстро — промедление нередко ведёт к ухудшению позиции.</p>
+        <p>Я сопровождаю дела о разводе с одновременным разделом совместно нажитого имущества, в том числе бизнес-активов, ценных бумаг и объектов недвижимости. Отдельное направление — споры об определении места жительства детей и порядке общения с ними, где требуется особая деликатность и знание позиции судебной практики.</p>
+        <p>В делах о взыскании алиментов добиваюсь максимально возможного размера выплат, используя механизмы обеспечительных мер и розыска имущества должника через суд и ФССП.</p>
+        <div class="case-tags">
+          <span class="ctag">Развод</span>
+          <span class="ctag">Раздел имущества</span>
+          <span class="ctag">Алименты</span>
+          <span class="ctag">Место жительства ребёнка</span>
+          <span class="ctag">Оспаривание брачного договора</span>
+          <span class="ctag">Раздел бизнеса</span>
+          <span class="ctag">Лишение родительских прав</span>
+        </div>
+      </div>
+      <div class="inc-box rv" style="transition-delay:.15s">
+        <h4>Что входит в услугу</h4>
+        <ul class="inc-list">
+          <li>Консультация и оценка правовых перспектив</li>
+          <li>Досудебные переговоры и медиация</li>
+          <li>Подготовка искового заявления и отзывов</li>
+          <li>Сбор доказательной базы, запросы</li>
+          <li>Участие в заседаниях суда всех инстанций</li>
+          <li>Взаимодействие с органами опеки</li>
+          <li>Исполнительное производство</li>
+        </ul>
+        <div class="inc-cta">
+          <div class="inc-price">Стоимость от</div>
+          <div class="inc-price-v">35 000 ₽</div>
+          <a href="booking.html" class="btn-book">Записаться на консультацию</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARBITRAGE -->
+<section class="srv-sec" id="tab-arbitrage">
+  <div class="srv-sec-i">
+    <div class="srv-top">
+      <div>
+        <div class="srv-label rv">Арбитраж и бизнес</div>
+        <h2 class="srv-h rv" style="transition-delay:.1s">Правовая защита<br>бизнеса в суде</h2>
+        <p class="srv-lead rv" style="transition-delay:.2s">Представительство в арбитражных судах, защита компании от рейдерства, корпоративные споры и взыскание задолженностей с контрагентов.</p>
+      </div>
+      <div class="srv-big-n rv" style="transition-delay:.15s">62</div>
+    </div>
+    <div class="srv-body">
+      <div class="srv-desc rv">
+        <p>Арбитражный процесс существенно отличается от гражданского — здесь иные стандарты доказывания, иные сроки и иная логика судебного усмотрения. Представитель в арбитраже должен досконально знать экономику спора, разбираться в бухгалтерской документации и уметь работать с экспертами.</p>
+        <p>Я оказываю юридическую помощь предпринимателям и компаниям в спорах с контрагентами по договорам поставки, подряда, оказания услуг и аренды. Веду корпоративные конфликты: оспаривание решений общих собраний, исключение участников, защита от размытия доли.</p>
+        <p>Отдельное направление — защита бизнеса от незаконных административных проверок и налоговых претензий, а также оспаривание ненормативных актов государственных органов в арбитражных судах.</p>
+        <div class="case-tags">
+          <span class="ctag">Взыскание долгов</span>
+          <span class="ctag">Корпоративные споры</span>
+          <span class="ctag">Договорные конфликты</span>
+          <span class="ctag">Оспаривание решений ОС</span>
+          <span class="ctag">Налоговые споры</span>
+          <span class="ctag">Защита от рейдерства</span>
+          <span class="ctag">Споры с госорганами</span>
+        </div>
+      </div>
+      <div class="inc-box rv" style="transition-delay:.15s">
+        <h4>Что входит в услугу</h4>
+        <ul class="inc-list">
+          <li>Правовой анализ ситуации и стратегия</li>
+          <li>Претензионный порядок и переговоры</li>
+          <li>Подготовка процессуальных документов</li>
+          <li>Ведение дела в 3 инстанциях АС</li>
+          <li>Обеспечительные меры (арест активов)</li>
+          <li>Работа с финансовой документацией</li>
+          <li>Исполнительное производство</li>
+        </ul>
+        <div class="inc-cta">
+          <div class="inc-price">Стоимость от</div>
+          <div class="inc-price-v">50 000 ₽</div>
+          <a href="booking.html" class="btn-book">Записаться на консультацию</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REALTY -->
+<section class="srv-sec" id="tab-realty">
+  <div class="srv-sec-i">
+    <div class="srv-top">
+      <div>
+        <div class="srv-label rv">Недвижимость</div>
+        <h2 class="srv-h rv" style="transition-delay:.1s">Правовая безопасность<br>сделок с недвижимостью</h2>
+        <p class="srv-lead rv" style="transition-delay:.2s">Сопровождение покупки и продажи, споры о праве собственности, защита от мошенничества и признание сделок недействительными.</p>
+      </div>
+      <div class="srv-big-n rv" style="transition-delay:.15s">94</div>
+    </div>
+    <div class="srv-body">
+      <div class="srv-desc rv">
+        <p>Рынок недвижимости — одна из наиболее рискованных сфер с точки зрения правовой безопасности. Ошибки при покупке квартиры могут стоить клиенту миллионов рублей и нескольких лет судебных разбирательств. Я провожу юридическую экспертизу объекта до сделки и выявляю скрытые риски, которые не видны на этапе поверхностной проверки.</p>
+        <p>Регулярно веду дела по оспариванию сделок: признание договора купли-продажи недействительным, защита добросовестного приобретателя, истребование имущества из чужого незаконного владения. Отдельная специализация — жилищные споры: выселение, снятие с регистрационного учёта, споры о праве пользования жилым помещением.</p>
+        <p>Сопровождение долевого строительства: защита дольщиков при банкротстве застройщика, взыскание неустойки по ДДУ, включение в реестр требований кредиторов.</p>
+        <div class="case-tags">
+          <span class="ctag">Сопровождение сделок</span>
+          <span class="ctag">Проверка объектов</span>
+          <span class="ctag">Споры о праве собственности</span>
+          <span class="ctag">Выселение</span>
+          <span class="ctag">ДДУ и застройщики</span>
+          <span class="ctag">Оспаривание сделок</span>
+          <span class="ctag">Кадастровые споры</span>
+        </div>
+      </div>
+      <div class="inc-box rv" style="transition-delay:.15s">
+        <h4>Что входит в услугу</h4>
+        <ul class="inc-list">
+          <li>Юридическая проверка объекта и истории</li>
+          <li>Анализ рисков до подписания договора</li>
+          <li>Подготовка и согласование договора</li>
+          <li>Контроль безопасного расчёта</li>
+          <li>Регистрация перехода права в Росреестре</li>
+          <li>Ведение судебных споров о недвижимости</li>
+          <li>Взаимодействие с кадастровой палатой</li>
+        </ul>
+        <div class="inc-cta">
+          <div class="inc-price">Стоимость от</div>
+          <div class="inc-price-v">40 000 ₽</div>
+          <a href="booking.html" class="btn-book">Записаться на консультацию</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANKRUPTCY -->
+<section class="srv-sec" id="tab-bankruptcy">
+  <div class="srv-sec-i">
+    <div class="srv-top">
+      <div>
+        <div class="srv-label rv">Банкротство</div>
+        <h2 class="srv-h rv" style="transition-delay:.1s">Банкротство физических<br>лиц и предпринимателей</h2>
+        <p class="srv-lead rv" style="transition-delay:.2s">Полное сопровождение процедуры банкротства: от подачи заявления до списания долгов и защиты имущества в ходе процедуры.</p>
+      </div>
+      <div class="srv-big-n rv" style="transition-delay:.15s">51</div>
+    </div>
+    <div class="srv-body">
+      <div class="srv-desc rv">
+        <p>Институт банкротства физических лиц в России существует с 2015 года, и за это время сформировалась обширная судебная практика. Результат процедуры во многом зависит от грамотной подготовки: правильного выбора момента для подачи заявления, корректного формирования долгового реестра и выстраивания правильных отношений с финансовым управляющим.</p>
+        <p>Я сопровождаю граждан с долговой нагрузкой от 500 000 рублей и выше. Особое внимание уделяю сохранению единственного жилья — эта норма имеет ограничения, которые важно правильно использовать. Также помогаю избежать субсидиарной ответственности руководителям и учредителям при банкротстве компании.</p>
+        <p>Помимо традиционной судебной процедуры, с 2023 года доступно внесудебное банкротство через МФЦ — подготавливаю документы и контролирую процедуру от начала до конца.</p>
+        <div class="case-tags">
+          <span class="ctag">Банкротство граждан</span>
+          <span class="ctag">Банкротство ИП</span>
+          <span class="ctag">Внесудебное банкротство</span>
+          <span class="ctag">Защита имущества</span>
+          <span class="ctag">Субсидиарная ответственность</span>
+          <span class="ctag">Оспаривание сделок в банкротстве</span>
+          <span class="ctag">Реестр кредиторов</span>
+        </div>
+      </div>
+      <div class="inc-box rv" style="transition-delay:.15s">
+        <h4>Что входит в услугу</h4>
+        <ul class="inc-list">
+          <li>Анализ ситуации и выбор оптимальной стратегии</li>
+          <li>Подготовка полного пакета документов</li>
+          <li>Подача заявления и сопровождение заседаний</li>
+          <li>Взаимодействие с финансовым управляющим</li>
+          <li>Защита имущества от реализации</li>
+          <li>Оспаривание неправомерных требований</li>
+          <li>Ведение до завершения и списания долгов</li>
+        </ul>
+        <div class="inc-cta">
+          <div class="inc-price">Стоимость от</div>
+          <div class="inc-price-v">80 000 ₽</div>
+          <a href="booking.html" class="btn-book">Записаться на консультацию</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-sec-i rv">
+    <span class="sec-label">Консультация</span>
+    <h2>Не знаете, с чего начать?</h2>
+    <p>Запишитесь на первичную консультацию — разберём вашу ситуацию, определим стратегию и оценим реальные перспективы.</p>
+    <div class="cta-btns">
+      <a href="booking.html" class="btn-pri">Записаться на консультацию</a>
+      <a href="tel:+74951234567" class="btn-sec">Позвонить сейчас</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-i">
+    <div class="footer-logo">Соколов А.И.</div>
+    <div class="footer-copy">© 2024 Адвокат Соколов А.И. Москва</div>
+    <div class="footer-links">
+      <a href="index.html">Главная</a>
+      <a href="services.html">Услуги</a>
+      <a href="index.html#prices">Стоимость</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+function switchTab(id){
+  // update tabs
+  document.querySelectorAll('.srv-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+  // update sections
+  document.querySelectorAll('.srv-sec').forEach(s => s.classList.toggle('active', s.id === 'tab-' + id));
+  // re-observe reveals in newly visible section
+  document.querySelectorAll('#tab-' + id + ' .rv').forEach(el => {
+    el.classList.remove('vis');
+    ro.observe(el);
+  });
+  // update hash
+  history.replaceState(null, '', '#' + id);
+}
+
+// handle initial hash
+const hash = location.hash.replace('#','');
+const valid = ['civil','family','arbitrage','realty','bankruptcy'];
+if(hash && valid.includes(hash)) switchTab(hash);
+
+// REVEAL
+const ro = new IntersectionObserver(entries => {
+  entries.forEach(en => { if(en.isIntersecting) en.target.classList.add('vis'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => ro.observe(el));
+</script>
+</body>
+</html>
